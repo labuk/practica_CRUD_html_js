@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Producto -->
+  <meta charset="UTF-8">
+  <title>Vista Vendedor - Sergio M.</title>
+  <!-- Bootstrap -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body onload="init(1);">
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <a class="navbar-brand" href="#myPage">Vista Vendedor</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="../html/admin.html" id="adminButton">Administrador</a></li>
+	        <li><a href="../index.html">Salir</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	
+	<div class="text-center" style="padding-top: 70px">
+		<h2>Añade productos a la lista</h2>
+	</div>
+
+	<div class="alert alert-success collapse" id="myAlert">
+		<a href="#" class="close" data-toggle="collapse" data-target="#myAlert">&times;</a>
+		<strong>Compra realizada!</strong> Gracias por confiar en nosotros.
+	</div>
+
+	<div class="row vistaVendedor">
+		<div id="listProduct" class="container col-md-4 well" data-spy="affix" data-offset-top="205">
+	  		<h4>Lista Compra</h4>
+			<ul style="border-bottom: 1px solid lightgray"></ul>
+			<div class="pull-left">
+				<button class="btn btn-primary btn-block" id="finishBuy">Finalizar Compra</button>
+			</div>
+			<div class="pull-right">
+				Total: <span id="listPrecio">0</span>
+			</div>
+		</div>
+
+		<div class="col-lg-7">
+			<table id="tableProduct" class="table table-striped">
+			    <thead>
+			      <tr>
+			        <th>Id</th>
+			        <th></th>
+			        <th>Nombre</th>
+			        <th>Referencia</th>
+			        <th>Departamento</th>
+			        <th>Precio €</th>
+			        <th>Stock</th>
+			      </tr>
+			    </thead>
+			    <tbody id="tableContactBody">
+			    </tbody>
+		  	</table>
+		</div>
+
+	</div>
+
+    <footer class="container-fluid text-center">
+	  <a href="#myPage" title="To Top">
+	    <span class="glyphicon glyphicon-chevron-up"></span>
+	  </a>
+	  <p>Sergio M.</p>
+	</footer>
+
+	<script type="text/javascript" src="../js/script.js" ></script>
+
+</body>
+</html>
+

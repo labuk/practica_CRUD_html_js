@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Producto -->
+  <meta charset="UTF-8">
+  <title>Vista Administrador - Sergio M.</title>
+  <!-- Bootstrap -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body onload="init(0);">
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <a class="navbar-brand" href="#myPage">Vista Aministrador</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="../html/vendedor.html" id="vendedorButton">Vendedor</a></li>
+	        <li><a href="../index.html">Salir</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<div class="text-center" style="padding-top: 70px">
+		<h2>Gestiona los productos</h2>
+	</div>
+
+	<div class="alert alert-success collapse" id="mySuccess">
+		<a href="#" class="close" data-toggle="collapse" data-target="#mySuccess">&times;</a>
+		<strong>Producto registrado correctamente!</strong>
+	</div>
+
+	<div class="alert alert-danger collapse" id="myAlert">
+		<a href="#" class="close" data-toggle="collapse" data-target="#myAlert">&times;</a>
+		<strong>Faltan campos por rellenar!</strong>
+	</div>
+
+	<div class="alert alert-warning collapse" id="myWarning">
+		<a href="#" class="close" data-toggle="collapse" data-target="#myWarning">&times;</a>
+		<strong>Producto modificado correctamente!</strong>
+	</div>
+
+	<div class="row vistaAdmin">
+        <div class="col-md-6">
+		    <div class="form-group">
+		      <label class="control-label col-sm-2" for="email">Nombre:</label>
+		      <div class="col-sm-10">
+		      	<input id="pArrayIndex" type="hidden" value="">
+		      	<input id="pNom" class="form-control" type="text" name="nom" placeholder="Introduce nombre" >
+		      </div>
+		    </div>
+		    <div class="form-group">
+		      <label class="control-label col-sm-2" for="pwd">Ref:</label>
+		      <div class="col-sm-10">   
+		      	<input id="pRef" class="form-control" type="text" name="ref" placeholder="Referencia" >       
+		      </div>
+		    </div>
+		</div>
+		<div class="col-md-6">
+		   	<div class="form-group">
+		      <label class="control-label col-sm-2" for="pwd">Precio:</label>
+		      <div class="col-sm-10">   
+		      	<input id="pPre" class="form-control" type="number" name="pre" placeholder="Precio" >      
+		      </div>
+		    </div>
+		   	<div class="form-group">
+		      <label class="control-label col-sm-2" for="pwd">Stock:</label>
+		      <div class="col-sm-10">   
+		      	<input id="pSto" class="form-control" type="number" name="sto" placeholder="Stock" >      
+		      </div>
+		    </div>
+		</div>
+		<div class="form-group col-sm-12">
+			<p class="col-sm-offset-1 col-sm-2">Departamento:</p>
+			<label class="radio-inline">
+				<input class="pDep" type="radio" name="dep" value="Papelería" checked> Papeleria
+			</label>
+			<label class="radio-inline">
+				<input class="pDep" class="form-control" type="radio" name="dep" value="Librería"> Libreria
+			</label>
+			<label class="radio-inline">
+				<input class="pDep" class="form-control" type="radio" name="dep" value="Tecnología"> Tecnología
+			</label>
+		</div>
+	    <div class="form-group">        
+	      <div class="col-md-offset-2 col-md-3">
+	        <button style="display: block" class="btn btn-success btn-block" id="addProducto">Añadir producto</button>
+	        <button style="display: none" class="btn btn-warning btn-block" id="updateProducto">Modificar producto</button>
+	      </div>
+	  	</div>
+	    <div class="form-group"> 
+	      <div class="col-md-offset-1 col-md-3">
+	        <button class="btn btn-info btn-block" id="cleanProducto">Limpiar formulario</button>
+	      </div>
+	    </div>
+	    <!-- Salto de fila en el grid de Bootstrap -->
+		<div class="clearfix"></div>
+		<div class="text-center">
+			<h3>Tabla de productos</h3>
+		</div>
+	    <table id="tableProduct" class="col-md-12 table table-striped">
+		    <thead>
+		      <tr>
+		        <th>Id</th>
+		        <th>Nombre</th>
+		        <th>Referencia</th>
+		        <th>Departamento</th>
+		        <th>Precio €</th>
+		        <th>Stock</th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody id="tableContactBody">
+		    </tbody>
+	  	</table>
+
+    </div>
+	
+
+
+	<footer class="container-fluid text-center">
+	  <a href="#myPage" title="To Top">
+	    <span class="glyphicon glyphicon-chevron-up"></span>
+	  </a>
+	  <p>Sergio M.</p>
+	</footer>
+
+	<script type="text/javascript" src="../js/script.js" ></script>
+
+</body>
+</html>
+
